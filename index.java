@@ -1,5 +1,3 @@
-package cpu;
-
 import java.util.*;
 public class index {
 
