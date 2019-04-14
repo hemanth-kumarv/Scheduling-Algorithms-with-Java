@@ -1,5 +1,3 @@
-package cpu;
-
 public class roundrobin {
 	public float roundRobin(String pid[], int num, int b[], int a[], int n) {
 		int res = 0;
