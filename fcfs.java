@@ -1,5 +1,3 @@
-package cpu;
-
 public class fcfs {
 	static void findWaitingTime(String proc[], int n, int bt[], int wt[], int at[]) {
 		int service_time[] = new int[n];
