@@ -1,5 +1,3 @@
-package cpu;
-
 public class sjf {
 	static void findWaitingTime(String pid[], int bt[], int art[], int n, int wt[]) {
 		int rt[] = new int[n];
