@@ -3,12 +3,12 @@ public class roundrobin {
 		int res = 0;
 		int resc = 0;
 
-		int res_a[] = new int[num];
-		int res_b[] = new int[num];
+		int res_x[] = new int[num];
+		int res_y[] = new int[num];
 
 		for (int i = 0; i < num; i++) {
-			res_b[i] = b[i];
-			res_a[i] = a[i];
+			res_y[i] = b[i];
+			res_x[i] = a[i];
 		}
 
 		int t = 0;
@@ -18,62 +18,62 @@ public class roundrobin {
 		while (true) {
 			boolean flag = true;
 			for (int i = 0; i < num; i++) {
-				if (res_a[i] <= t) {
-					if (res_a[i] <= n && res_b[i] > 0) {
+				if (res_x[i] <= t) {
+					if (res_x[i] <= n && res_y[i] > 0) {
 						flag = false;
-						if (res_b[i] > n) {
+						if (res_y[i] > n) {
 
 							t = t + n;
-							res_b[i] = res_b[i] - n;
-							res_a[i] = res_a[i] + n;
+							res_y[i] = res_y[i] - n;
+							res_x[i] = res_x[i] + n;
 						}
 
 						else {
-							t = t + res_b[i];
+							t = t + res_y[i];
 							ttime[i] = t - a[i];
 
 							w[i] = t - b[i] - a[i];
-							res_b[i] = 0;
+							res_y[i] = 0;
 						}
 
 					}
 
-					else if (res_a[i] > n) {
+					else if (res_x[i] > n) {
 						for (int j = 0; j < num; j++) {
-							if (res_a[j] < res_a[i] && res_b[j] > 0) {
+							if (res_x[j] < res_x[i] && res_y[j] > 0) {
 								flag = false;
-								if (res_b[j] > n) {
+								if (res_y[j] > n) {
 									t = t + n;
-									res_b[j] = res_b[j] - n;
-									res_a[j] = res_a[j] + n;
+									res_y[j] = res_y[j] - n;
+									res_x[j] = res_x[j] + n;
 								} else {
-									t = t + res_b[j];
+									t = t + res_y[j];
 									ttime[j] = t - a[j];
 									w[j] = t - b[j] - a[j];
-									res_b[j] = 0;
+									res_y[j] = 0;
 								}
 
 							}
 						}
 
-						if (res_b[i] > 0) {
+						if (res_y[i] > 0) {
 							flag = false;
 
-							if (res_b[i] > n) {
+							if (res_y[i] > n) {
 								t = t + n;
-								res_b[i] = res_b[i] - n;
-								res_a[i] = res_a[i] + n;
+								res_y[i] = res_y[i] - n;
+								res_x[i] = res_x[i] + n;
 							}
 
 							else {
-								t = t + res_b[i];
+								t = t + res_y[i];
 								ttime[i] = t - a[i];
 								w[i] = t - b[i] - a[i];
-								res_b[i] = 0;
+								res_y[i] = 0;
 							}
 						}
 					}
-				} else if (res_a[i] > t) {
+				} else if (res_x[i] > t) {
 					t++;
 					i--;
 				}
